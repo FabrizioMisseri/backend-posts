@@ -3,6 +3,18 @@
 @section('content')
     <div class="container">
 
+        @if ($errors->any())
+            <div class="col-8 row mb-3 mt-3 alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form class="form-control" action="{{ route('admin.posts.store') }}" method="POST">
             @csrf
 

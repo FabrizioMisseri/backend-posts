@@ -4,7 +4,7 @@
     <div class="container">
 
         {{-- errors --}}
-        {{-- @if ($errors->any())
+        @if ($errors->any())
             <div class="col-8 row mb-3 mt-3 alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -14,7 +14,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif --}}
+        @endif
         {{-- / errors --}}
 
         {{-- FORM EDIT --}}

@@ -20,7 +20,7 @@ class PostsSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $newPost = new Post();
             $newPost->name = $faker->name();
-            $newPost->text = $faker->sentence(3);
+            $newPost->text = $faker->paragraph();
             $newPost->save();
         }
     }

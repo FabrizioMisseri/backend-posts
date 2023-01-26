@@ -18,9 +18,9 @@
                 previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
                 liking.</p>
             {{-- BUTTONE --}}
-            <button class="btn btn-primary btn-lg" type="button">
+            <a class="btn btn-primary btn-lg" href="{{ route('admin.dashboard') }}">
                 Vai all'admin
-            </button>
+            </a>
             {{-- / BUTTONE --}}
         </div>
     </div>

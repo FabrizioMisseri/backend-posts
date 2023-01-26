@@ -60,14 +60,14 @@
                                     Dashboard
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() === 'admin.projects.index' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.projects.index') }}">
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() === 'admin.posts.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.posts.index') }}">
                                     <i class="fa-solid fa-list"></i>
-                                    projects
+                                    posts
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() === 'admin.types.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-list"></i>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRequest;
+use App\Http\Requests\Admin\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -63,9 +64,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -75,9 +76,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, Post $post)
     {
-        //
+        $data = $request->validated();
+        $post->update($data);
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**

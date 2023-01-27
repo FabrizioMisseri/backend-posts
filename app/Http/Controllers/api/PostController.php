@@ -14,8 +14,25 @@ class PostController extends Controller
         $posts = Post::all();
 
         return response()->json([
-            'success' => 'true',
+            'success' => true,
             'response' => $posts,
         ]);
+    }
+
+    public function show($id)
+    {
+        $post = Post::where('id', $id)->first();
+
+        if ($post) {
+            return response()->json([
+                'success' => true,
+                'response' => $post,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'response' => 'il post selezionato non esiste',
+            ]);
+        }
     }
 }

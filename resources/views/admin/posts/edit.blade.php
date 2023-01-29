@@ -29,6 +29,20 @@
                 <input type="text" id="name" min="4" max="150" name="name" value="{{ $post->name }}">
             </div>
 
+            {{-- tags --}}
+            <div class="form-group mb-2 row">
+                @foreach ($tags as $tag)
+                    <div class="col-1">
+                        <input type="checkbox" value="{{ $tag->id }}" name="tags[]" id="tag-{{ $tag->id }}"
+                            @checked($post->tags->contains($tag))>
+                        <label for="tag-{{ $tag->id }}">
+                            Tag: {{ $tag->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+            {{-- / tags --}}
+
             <div class="form-group mb-2">
                 <div>
                     <label for="text">Description:</label>

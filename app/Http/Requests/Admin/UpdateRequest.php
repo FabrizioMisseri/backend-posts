@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => ['required', 'min:4', 'max:150'],
             'text' => ['required'],
+            'tags' => ['exists:tags,id'],
         ];
     }
 }

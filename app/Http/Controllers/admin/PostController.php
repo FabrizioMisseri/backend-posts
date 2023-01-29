@@ -73,7 +73,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'tags'));
     }
 
     /**
@@ -87,6 +88,11 @@ class PostController extends Controller
     {
         $data = $request->validated();
         $post->update($data);
+        if ($request->has('tags')) {
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->detach();
+        }
         return redirect()->route('admin.posts.show', $post->id);
     }
 
@@ -98,6 +104,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->tags()->detach();
         $post->delete();
         return redirect()->route('admin.posts.index');
     }

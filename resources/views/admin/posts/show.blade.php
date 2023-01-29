@@ -8,6 +8,14 @@
 
                 <h5 class="mt-3">{{ $post->id }}</h5>
 
+                @if ($post->tags)
+                    @foreach ($post->tags as $item)
+                        <h5>
+                            Tag: {{ $item->name }}
+                        </h5>
+                    @endforeach
+                @endif
+
                 <p>{{ $post->text }}</p>
             </div>
         </div>

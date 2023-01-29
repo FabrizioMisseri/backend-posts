@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRequest;
 use App\Http\Requests\Admin\UpdateRequest;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -28,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('tags'));
     }
 
     /**
@@ -42,8 +44,13 @@ class PostController extends Controller
         //dd($request->request);
         $data = $request->validated();
         //dd($data);
-
         $newPost = Post::create($data);
+
+        if ($request->has('tags')) {
+            $newPost->tags()->attach($data['tags']);
+        }
+        //dd($newPost);
+
         return redirect()->route('admin.posts.show', $newPost->id);
     }
 

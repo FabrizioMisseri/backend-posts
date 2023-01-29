@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRequest;
 use App\Http\Requests\Admin\UpdateRequest;
+use App\Models\Author;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -29,8 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $authors = Author::all();
         $tags = Tag::all();
-        return view('admin.posts.create', compact('tags'));
+        return view('admin.posts.create', compact('tags', 'authors'));
     }
 
     /**

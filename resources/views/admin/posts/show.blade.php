@@ -17,6 +17,10 @@
                 @endif
 
                 <p>{{ $post->text }}</p>
+
+
+                <h6>Scritto da: {{ $post->author->name }}</h6>
+
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'text'];
+    protected $fillable = ['author_id', 'name', 'text'];
 
     public function tags()
     {

@@ -47,6 +47,15 @@
                 <textarea name="text" id="text" cols="30" rows="10"></textarea>
             </div>
 
+            {{-- authors --}}
+            <select name="author_id" id="">
+                <option value="">seleziona autore</option>
+                @foreach ($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                @endforeach
+            </select>
+            {{-- / authors --}}
+
             <div class="mt-4">
                 <button class="btn btn-primary" type="submit">
                     SAVE

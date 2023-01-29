@@ -21,7 +21,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = Post::where('id', $id)->first();
+        $post = Post::with('tags')->where('id', $id)->first();
 
         if ($post) {
             return response()->json([
